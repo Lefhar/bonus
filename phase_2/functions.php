@@ -5,17 +5,10 @@
      * @return bool
      */
     function checkClass($class) {
-        switch ($class) {
-            case is_a($class, 'Foo'):
+        if(preg_match("`Foo|User|Country`i",get_class($class)))//si contien l'une des class retourne true
+        {
                 return true;
-                break;
-            case is_a($class, 'User'):
-                return true;
-                break;
-            case is_a($class, 'Country'):
-                return true;
-                break;
-            default:
+        }else{
                 return false;
         }
     }
